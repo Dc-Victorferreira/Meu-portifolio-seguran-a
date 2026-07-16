@@ -1,0 +1,47 @@
+# TryHackMe — Networking Concepts
+
+> Writeup de estudo produzido durante minha trajetória em Cyber Segurança, com foco em construir uma base sólida antes de avançar para labs mais práticos de pentest.
+
+## 🎯 Objetivo do módulo
+
+Consolidar os fundamentos de redes necessários para qualquer área de segurança ofensiva ou defensiva, cobrindo:
+
+- Modelo OSI (7 camadas)
+- Suíte de protocolos TCP/IP
+- Conceitos de portas, serviços e comunicação cliente-servidor
+- Interação manual com serviços de rede via terminal
+
+## 🧠 O que eu aprendi
+
+### Modelo OSI
+Estrutura conceitual em 7 camadas (Física, Enlace, Rede, Transporte, Sessão, Apresentação e Aplicação) usada para entender como os dados trafegam entre dispositivos — essencial para diagnosticar problemas e entender onde cada protocolo/ferramenta atua durante um pentest.
+
+### TCP/IP
+Modelo mais enxuto (4 camadas) que é, na prática, o que roda na internet hoje. Reforcei a diferença entre TCP (orientado à conexão, confiável) e UDP (sem conexão, mais rápido), além do papel do IP no roteamento de pacotes.
+
+### Interação manual com serviços (Telnet)
+Usei o `telnet` para me conectar diretamente a um servidor web e enviar requisições HTTP "na mão", sem navegador:
+
+```bash
+telnet <IP> 80
+```
+
+Isso exigiu entender a estrutura exata de uma requisição HTTP (método, versão, header `Host`, linha em branco final) — um exercício simples, mas que deixa claro o que o navegador faz "por baixo dos panos" a cada requisição.
+
+**Principais aprendizados práticos:**
+- A importância da linha em branco (`\r\n\r\n`) para sinalizar o fim dos headers
+- Diferença de comportamento entre `HTTP/1.0` e `HTTP/1.1`
+- Como identificar informações do servidor (nome e versão) direto no header `Server` da resposta
+
+## 🔧 Ferramentas utilizadas
+- `telnet`
+- Terminal Linux (AttackBox da TryHackMe)
+
+## 💡 Por que isso importa para pentest
+Entender a comunicação em baixo nível é a base para reconhecimento e enumeração — muitas vulnerabilidades e informações sensíveis (versões de serviço, banners, headers mal configurados) são descobertas exatamente assim, sem depender de ferramentas automatizadas.
+
+## 📚 Próximos passos
+Seguir evoluindo a trilha teórica e migrar gradualmente para labs práticos de reconhecimento e enumeração, aplicando esses conceitos de rede em cenários reais de pentest.
+
+---
+*Room concluída na plataforma [TryHackMe](https://tryhackme.com). Flags e respostas específicas não são divulgadas neste writeup, conforme boas práticas da comunidade.*
